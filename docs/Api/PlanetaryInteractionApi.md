@@ -70,11 +70,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCharactersCharacterIdPlanetsPlanetId**
-> \EveClient\Model\GetCharactersCharacterIdPlanetsPlanetIdOk getCharactersCharacterIdPlanetsPlanetId($character_id, $planet_id, $datasource, $if_none_match, $token)
+> \EveClient\Model\GetCharactersCharacterIdPlanetsPlanetIdOk getCharactersCharacterIdPlanetsPlanetId($character_id, $planet_id, $datasource, $token)
 
 Get colony layout
 
-Returns full details on the layout of a single planetary colony, including links, pins and routes. Note: Planetary information is only recalculated when the colony is viewed through the client. Information will not update until this criteria is met.  ---  This route is cached for up to 600 seconds
+Returns full details on the layout of a single planetary colony, including links, pins and routes. Note: Planetary information is only recalculated when the colony is viewed through the client. Information will not update until this criteria is met.  ---
 
 ### Example
 ```php
@@ -93,11 +93,10 @@ $apiInstance = new EveClient\Api\PlanetaryInteractionApi(
 $character_id = 56; // int | An EVE character ID
 $planet_id = 56; // int | Planet id of the target planet
 $datasource = "tranquility"; // string | The server name you would like data from
-$if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
 try {
-    $result = $apiInstance->getCharactersCharacterIdPlanetsPlanetId($character_id, $planet_id, $datasource, $if_none_match, $token);
+    $result = $apiInstance->getCharactersCharacterIdPlanetsPlanetId($character_id, $planet_id, $datasource, $token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlanetaryInteractionApi->getCharactersCharacterIdPlanetsPlanetId: ', $e->getMessage(), PHP_EOL;
@@ -112,7 +111,6 @@ Name | Type | Description  | Notes
  **character_id** | **int**| An EVE character ID |
  **planet_id** | **int**| Planet id of the target planet |
  **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
- **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type

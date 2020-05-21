@@ -455,16 +455,15 @@ class PlanetaryInteractionApi
      * @param  int $character_id An EVE character ID (required)
      * @param  int $planet_id Planet id of the target planet (required)
      * @param  string $datasource The server name you would like data from (optional, default to tranquility)
-     * @param  string $if_none_match ETag from a previous request. A 304 will be returned if this matches the current ETag (optional)
      * @param  string $token Access token to use if unable to set a header (optional)
      *
      * @throws \EveClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EveClient\Model\GetCharactersCharacterIdPlanetsPlanetIdOk
      */
-    public function getCharactersCharacterIdPlanetsPlanetId($character_id, $planet_id, $datasource = 'tranquility', $if_none_match = null, $token = null)
+    public function getCharactersCharacterIdPlanetsPlanetId($character_id, $planet_id, $datasource = 'tranquility', $token = null)
     {
-        list($response) = $this->getCharactersCharacterIdPlanetsPlanetIdWithHttpInfo($character_id, $planet_id, $datasource, $if_none_match, $token);
+        list($response) = $this->getCharactersCharacterIdPlanetsPlanetIdWithHttpInfo($character_id, $planet_id, $datasource, $token);
         return $response;
     }
 
@@ -476,17 +475,16 @@ class PlanetaryInteractionApi
      * @param  int $character_id An EVE character ID (required)
      * @param  int $planet_id Planet id of the target planet (required)
      * @param  string $datasource The server name you would like data from (optional, default to tranquility)
-     * @param  string $if_none_match ETag from a previous request. A 304 will be returned if this matches the current ETag (optional)
      * @param  string $token Access token to use if unable to set a header (optional)
      *
      * @throws \EveClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EveClient\Model\GetCharactersCharacterIdPlanetsPlanetIdOk, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCharactersCharacterIdPlanetsPlanetIdWithHttpInfo($character_id, $planet_id, $datasource = 'tranquility', $if_none_match = null, $token = null)
+    public function getCharactersCharacterIdPlanetsPlanetIdWithHttpInfo($character_id, $planet_id, $datasource = 'tranquility', $token = null)
     {
         $returnType = '\EveClient\Model\GetCharactersCharacterIdPlanetsPlanetIdOk';
-        $request = $this->getCharactersCharacterIdPlanetsPlanetIdRequest($character_id, $planet_id, $datasource, $if_none_match, $token);
+        $request = $this->getCharactersCharacterIdPlanetsPlanetIdRequest($character_id, $planet_id, $datasource, $token);
 
         try {
             $options = $this->createHttpClientOption();
@@ -619,15 +617,14 @@ class PlanetaryInteractionApi
      * @param  int $character_id An EVE character ID (required)
      * @param  int $planet_id Planet id of the target planet (required)
      * @param  string $datasource The server name you would like data from (optional, default to tranquility)
-     * @param  string $if_none_match ETag from a previous request. A 304 will be returned if this matches the current ETag (optional)
      * @param  string $token Access token to use if unable to set a header (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCharactersCharacterIdPlanetsPlanetIdAsync($character_id, $planet_id, $datasource = 'tranquility', $if_none_match = null, $token = null)
+    public function getCharactersCharacterIdPlanetsPlanetIdAsync($character_id, $planet_id, $datasource = 'tranquility', $token = null)
     {
-        return $this->getCharactersCharacterIdPlanetsPlanetIdAsyncWithHttpInfo($character_id, $planet_id, $datasource, $if_none_match, $token)
+        return $this->getCharactersCharacterIdPlanetsPlanetIdAsyncWithHttpInfo($character_id, $planet_id, $datasource, $token)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -643,16 +640,15 @@ class PlanetaryInteractionApi
      * @param  int $character_id An EVE character ID (required)
      * @param  int $planet_id Planet id of the target planet (required)
      * @param  string $datasource The server name you would like data from (optional, default to tranquility)
-     * @param  string $if_none_match ETag from a previous request. A 304 will be returned if this matches the current ETag (optional)
      * @param  string $token Access token to use if unable to set a header (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCharactersCharacterIdPlanetsPlanetIdAsyncWithHttpInfo($character_id, $planet_id, $datasource = 'tranquility', $if_none_match = null, $token = null)
+    public function getCharactersCharacterIdPlanetsPlanetIdAsyncWithHttpInfo($character_id, $planet_id, $datasource = 'tranquility', $token = null)
     {
         $returnType = '\EveClient\Model\GetCharactersCharacterIdPlanetsPlanetIdOk';
-        $request = $this->getCharactersCharacterIdPlanetsPlanetIdRequest($character_id, $planet_id, $datasource, $if_none_match, $token);
+        $request = $this->getCharactersCharacterIdPlanetsPlanetIdRequest($character_id, $planet_id, $datasource, $token);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -697,13 +693,12 @@ class PlanetaryInteractionApi
      * @param  int $character_id An EVE character ID (required)
      * @param  int $planet_id Planet id of the target planet (required)
      * @param  string $datasource The server name you would like data from (optional, default to tranquility)
-     * @param  string $if_none_match ETag from a previous request. A 304 will be returned if this matches the current ETag (optional)
      * @param  string $token Access token to use if unable to set a header (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCharactersCharacterIdPlanetsPlanetIdRequest($character_id, $planet_id, $datasource = 'tranquility', $if_none_match = null, $token = null)
+    protected function getCharactersCharacterIdPlanetsPlanetIdRequest($character_id, $planet_id, $datasource = 'tranquility', $token = null)
     {
         // verify the required parameter 'character_id' is set
         if ($character_id === null || (is_array($character_id) && count($character_id) === 0)) {
@@ -736,10 +731,6 @@ class PlanetaryInteractionApi
         // query params
         if ($token !== null) {
             $queryParams['token'] = ObjectSerializer::toQueryValue($token);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
         }
 
         // path params
